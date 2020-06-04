@@ -32,23 +32,25 @@ public class ProductDao {
 			return null;
 		}
 	}
-
-	public void persist(Product product) {
-		Transaction transaction = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
-			transaction = session.beginTransaction();
-			// save the student object
-			session.persist(product);
-			// commit transaction
-			transaction.commit();
-		} catch (Exception e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		}
-	}
+	
+	public Product getProduct(int id) {
+        Transaction transaction = null;
+        Product product = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+            product = session.get(Product.class, id);
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return product;
+    }
 	
 	public void save(Product product) {
 		Transaction transaction = null;

@@ -8,13 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ProductDao;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/")
+@WebServlet(urlPatterns = "/home")
 public class HomeServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -25,6 +27,7 @@ public class HomeServlet extends HttpServlet {
 		productDao = new ProductDao();
 	}
 
+	/*
 	private void pseudoRegister() {
 		int id = 1;
 		String name = "Product";
@@ -37,13 +40,20 @@ public class HomeServlet extends HttpServlet {
 		
 		productDao.save(product);
 	}
+	*/
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		List<Product> products = productDao.get();
 		System.out.println(products);
-		
 		request.setAttribute("products", products);
+		
+		HttpSession session = request.getSession();
+		List<Integer> shoppingCart = null;
+		shoppingCart = (List<Integer>) session.getAttribute("cart");
+		if(shoppingCart == null)
+			shoppingCart = new ArrayList<>();
+		session.setAttribute("cart", shoppingCart);	
 		
         request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
     }
