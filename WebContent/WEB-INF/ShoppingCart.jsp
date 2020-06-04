@@ -7,6 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <div class="d-flex flex-row justify-content-around">
-    <div><%@include file="images/shopping-cart.svg" %></div>
+    <div><%@include file="icons/shopping-cart.svg" %></div>
     <div>${sessionScope.cart.size()}</div>
 </div>
