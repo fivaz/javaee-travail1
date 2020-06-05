@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="/products" var="linkServletAddProduct"/>
-<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
 <html>
 <head>
     <title>Product</title>
@@ -14,7 +13,8 @@
     	<img src='<c:url value="/images/${requestScope.product.visual1}"></c:url>' />   
     	<img src='<c:url value="/images/${requestScope.product.visual2}"></c:url>' /> 
     	<form method="POST" action="${linkServletAddProduct}">
-		    <input type="text" name="id" value="${requestScope.product.id}"/>
+    		<input type="hidden" name="id" value="${requestScope.product.id}"/>
+		    <input type="hidden" name="context" value="${requestScope['javax.servlet.forward.request_uri']}"/>
 		    <button>CHF ${requestScope.product.price}
 		        <%@include file="icons/shopping-cart.svg" %>
 		    </button>

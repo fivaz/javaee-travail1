@@ -38,6 +38,7 @@ public class ProductsServlet extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		int productId = Integer.valueOf(request.getParameter("id"));
+		String context = request.getParameter("context");
 		HttpSession session = request.getSession();
 		List<Integer> shoppingCart = null;
 		shoppingCart = (List<Integer>) session.getAttribute("cart");
@@ -45,6 +46,6 @@ public class ProductsServlet extends HttpServlet {
 			shoppingCart = new ArrayList<>();
 		shoppingCart.add(productId);
 		session.setAttribute("cart", shoppingCart);		
-		response.sendRedirect("home");
+		response.sendRedirect(context);
     }
 }
