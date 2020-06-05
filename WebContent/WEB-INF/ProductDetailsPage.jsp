@@ -16,7 +16,7 @@
 	    	<form method="POST" action="${linkServletAddProduct}">
 	    		<input type="hidden" name="id" value="${requestScope.product.id}"/>
 			    <input type="hidden" name="context" value="${requestScope['javax.servlet.forward.request_uri']}"/>
-			    <button type="button" class="btn btn-success">CHF ${requestScope.product.price}
+			    <button class="btn btn-success">CHF ${requestScope.product.price}
 			        <%@include file="icons/shopping-cart.svg" %>
 			    </button>
 	    	</form>

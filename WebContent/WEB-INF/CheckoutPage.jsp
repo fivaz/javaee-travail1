@@ -6,18 +6,20 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
 </head>
-<body>
-    <table class="table">
+<body class="m-5">
+	<h1>Checkout</h1>
+    <table class="table table-striped">
     	<thead>
-    	<tr>
-            <th scope="col">Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Price</th>
-        </tr>
+	    	<tr>
+	            <th scope="col">Name</th>
+	            <th scope="col">Quantity</th>
+	            <th scope="col"></th>
+	            <th scope="col"></th>
+	            <th scope="col"></th>
+	            <th scope="col">Price</th>
+	        </tr>
     	</thead>
         <tbody>
         <c:forEach var="productWithQuantity" items="${cart.products}" varStatus="status">
@@ -28,35 +30,37 @@
 	        		<form method="POST" action="${linkServletCheckout}">
 	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
 	        			<input type="hidden" name="context" value="increase"/>
-	        			<button>+</button>
+	        			<button class="btn btn-primary">+</button>
 	        		</form>
 	        	</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
 	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
 	        			<input type="hidden" name="context" value="reduce"/>
-	        			<button>-</button>
+	        			<button class="btn btn-warning">-</button>
 	        		</form>
 	        	</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
 	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
 	        			<input type="hidden" name="context" value="remove"/>
-	    				<button><%@include file="icons/trash.svg" %></button>
+	    				<button class="btn btn-danger"><%@include file="icons/trash.svg" %></button>
 	        		</form>
 	        	</td>
-	        	<td>${productWithQuantity.price()}</td>
+	        	<td>CHF ${productWithQuantity.price()}</td>
 	        </tr>
         </c:forEach>
     	</tbody>
     </table>
-	    <div class="d-flex flex-row justify-content-around">
-		    <h2>Total</h2>
-		    <h2>CHF ${cart.total()}</h2>
-	    </div>
-	    <a href="${linkServletProductsList}">Back to shopping</a>
+    <div class="d-flex flex-row justify-content-between">
+	    <span class="h3">Total</span>
+	    <span class="h3">CHF ${cart.total()}</span>
+    </div>
+    <div class="mb-3">
+    	<a class="h3" href="${linkServletProductsList}">Back to shopping</a>
+    </div>
     <form method="GET" action="${linkServletPayment}">
-    	<button>Pay</button>
+    	<button class="btn btn-success">Payer</button>
     </form>
 </body>
 </html>
