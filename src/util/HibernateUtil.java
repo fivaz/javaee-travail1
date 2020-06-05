@@ -24,7 +24,6 @@ public class HibernateUtil {
 				settings.put(Environment.URL, "jdbc:h2:mem:mydb");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
 				//settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-				//settings.put(Environment.URL, "jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=CET");
 				//settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydb?useSSL=false&serverTimezone=CET");
 				settings.put(Environment.USER, "root");
 				settings.put(Environment.PASS, "root");
