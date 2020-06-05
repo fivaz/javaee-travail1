@@ -29,7 +29,6 @@ public class PaymentServlet extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		SessionUtil.clearCart(request);	
-		request.setAttribute("paid", true);
 		response.sendRedirect("home?message=true");
     }
 }

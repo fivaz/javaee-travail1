@@ -3,9 +3,6 @@ package dao;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -37,11 +34,8 @@ public class ProductDao {
         Transaction transaction = null;
         Product product = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // start a transaction
             transaction = session.beginTransaction();
-            // get an user object
             product = session.get(Product.class, id);
-            // commit transaction
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -55,11 +49,8 @@ public class ProductDao {
 	public void save(Product product) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
 			transaction = session.beginTransaction();
-			// save the student object
 			session.save(product);
-			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
 			if (transaction != null) {

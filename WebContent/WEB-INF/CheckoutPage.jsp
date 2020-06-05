@@ -22,27 +22,27 @@
 	        </tr>
     	</thead>
         <tbody>
-        <c:forEach var="productWithQuantity" items="${cart.products}" varStatus="status">
+        <c:forEach var="productWithQuantity" items="${cart.getProducts()}" varStatus="status">
 	        <tr>
-	        	<td>${productWithQuantity.product.name}</td>
-	        	<td>${productWithQuantity.quantity}</td>
+	        	<td>${productWithQuantity.getProduct().getName()}</td>
+	        	<td>${productWithQuantity.getQuantity()}</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
-	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="id" value="${productWithQuantity.getProduct().getId()}"/>
 	        			<input type="hidden" name="context" value="increase"/>
 	        			<button class="btn btn-primary">+</button>
 	        		</form>
 	        	</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
-	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="id" value="${productWithQuantity.getProduct().getId()}"/>
 	        			<input type="hidden" name="context" value="reduce"/>
 	        			<button class="btn btn-warning">-</button>
 	        		</form>
 	        	</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
-	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="id" value="${productWithQuantity.getProduct().getId()}"/>
 	        			<input type="hidden" name="context" value="remove"/>
 	    				<button class="btn btn-danger"><%@include file="icons/trash.svg" %></button>
 	        		</form>

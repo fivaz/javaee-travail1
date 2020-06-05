@@ -2,8 +2,8 @@ package model;
 
 public class ProductWithQuantity {
 
-    Product product;
-    int quantity;
+	private Product product;
+	private int quantity;
 
     public ProductWithQuantity(Product product, int quantity) {
         this.product = product;

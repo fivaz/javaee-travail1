@@ -10,12 +10,12 @@ import java.util.Objects;
 public class Product {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
-    String name;
-    String visual1;
-    String visual2;
-    double price;
-    String description;
+    private int id;
+    private String name;
+    private String visual1;
+    private String visual2;
+    private double price;
+    private String description;
 
     public Product() {
     }

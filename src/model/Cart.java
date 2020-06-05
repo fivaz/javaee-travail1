@@ -3,10 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-//Use a Map with Product as Key
 public class Cart {
 
-    List<ProductWithQuantity> products;
+    private List<ProductWithQuantity> products;
 
     public Cart() {
         this.products = new ArrayList<>();
@@ -62,8 +61,7 @@ public class Cart {
     	return total;
     }
     
-    public void clearCart()
-    {
+    public void clearCart(){
     	products.clear();
     }
 }

@@ -10,11 +10,6 @@ import org.hibernate.service.ServiceRegistry;
 
 import model.Product;
 
-/**
- * Java based configuration
- * @author ramesh Fadatare
- *
- */
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 
@@ -23,7 +18,7 @@ public class HibernateUtil {
 			try {
 				Configuration configuration = new Configuration();
 
-				// Hibernate settings equivalent to hibernate.cfg.xml's properties
+				// C'est comme hibernate.cfg.xml's 
 				Properties settings = new Properties();
 				//settings.put(Environment.DRIVER, "org.h2.Driver");
 				//settings.put(Environment.URL, "jdbc:h2:mem:mydb");

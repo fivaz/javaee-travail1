@@ -3,7 +3,6 @@ package web;
 import util.SessionUtil;
 import util.Variables;
 import model.Cart;
-import model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
