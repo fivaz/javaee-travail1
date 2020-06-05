@@ -12,7 +12,7 @@
 </head>
 <body class="homepage">
     <jsp:include page="Toolbar.jsp" />
-    <c:if test="${paid}">
+    <c:if test="${not empty param.message}">
 		<div class="alert alert-success" role="alert">
 		  Merci pour votre commande
 		</div>

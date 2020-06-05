@@ -30,6 +30,6 @@ public class PaymentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		SessionUtil.clearCart(request);	
 		request.setAttribute("paid", true);
-        request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
+		response.sendRedirect("home?message=true");
     }
 }

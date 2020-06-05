@@ -5,7 +5,7 @@
 <c:url value="/payment" var="linkServletPayment"/>
 <html>
 <head>
-    <title>Home</title>
+    <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
 </head>
 <body class="m-5">
