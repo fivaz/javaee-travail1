@@ -8,15 +8,15 @@
     <title>Home</title>
 </head>
 <body>
-    <table border="1">
+    <table class="table">
     	<thead>
     	<tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>Price</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Price</th>
         </tr>
     	</thead>
         <tbody>
