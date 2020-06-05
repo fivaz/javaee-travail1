@@ -54,4 +54,11 @@ public class Cart {
     		quantity += product.getQuantity();
     	return quantity;
     }
+    
+    public double total() {
+    	double total = 0;
+    	for(ProductWithQuantity productWithQuantity: products) 
+    		total += productWithQuantity.price();
+    	return total;
+    }
 }

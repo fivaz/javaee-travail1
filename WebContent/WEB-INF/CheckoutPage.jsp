@@ -49,7 +49,10 @@
         </c:forEach>
     	</tbody>
     </table>
-    <h2>Total </h2>
+    <div class="d-flex flex-row justify-content-around">
+	    <h2>Total</h2>
+	    <h2>CHF ${cart.total()}</h2>
+    </div>
     <a href="${linkServletProductsList}">Back to shopping</a>
     <button>Pay</button>
 </body>
