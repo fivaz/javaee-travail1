@@ -20,18 +20,19 @@ public class PaymentServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
 		Cart cart = SessionUtil.getCart(request);
 		double total = cart.total();
+		
 		request.setAttribute("total", total);
 		request.setAttribute("paid", false);
-		/**/
         request.getRequestDispatcher(Variables.folder + "PaymentPage.jsp").forward(request, response);
     }
 	
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		double total = Double.valueOf(request.getParameter("total"));
+		SessionUtil.clearCart(request);	
+		
 		request.setAttribute("total", total);
 		request.setAttribute("paid", true);
         request.getRequestDispatcher(Variables.folder + "PaymentPage.jsp").forward(request, response);
