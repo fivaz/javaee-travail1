@@ -13,12 +13,12 @@
     <table class="table table-striped">
     	<thead>
 	    	<tr>
-	            <th scope="col">Name</th>
-	            <th scope="col">Quantity</th>
+	            <th scope="col">Nom</th>
+	            <th scope="col">Quantité</th>
 	            <th scope="col"></th>
 	            <th scope="col"></th>
 	            <th scope="col"></th>
-	            <th scope="col">Price</th>
+	            <th scope="col">Prix</th>
 	        </tr>
     	</thead>
         <tbody>
