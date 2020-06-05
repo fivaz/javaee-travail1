@@ -5,10 +5,12 @@
 
 <div class="product d-flex flex-colum align-items-center mb-5">
 	<div class="image">
-	   	<a class="top" href="${linkServletProductDetails}${requestScope.product.id}">
-			<span>${requestScope.product.name}</span>
-	    </a>   
-	    <img src='<c:url value="/images/${requestScope.product.visual1}"></c:url>'/>
+	   	<a href="${linkServletProductDetails}${requestScope.product.id}">
+		   	<h1 class="top">
+				<span>${requestScope.product.name}</span>
+		    </h1>   
+		    <img src='<c:url value="/images/${requestScope.product.visual1}"></c:url>'/>
+	    </a>
 	    <form class="bottom" method="POST" action="${linkServletAddProduct}">
 		    <input type="hidden" name="id" value="${requestScope.product.id}"/>
 		    <input type="hidden" name="context" value="${requestScope['javax.servlet.forward.request_uri']}"/>

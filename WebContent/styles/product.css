@@ -7,11 +7,6 @@
 	width: 100%;
 }
 
-.image img{
-	width: 100%;
-	background-color: white;
-}
-
 .image .top{ 
    position: absolute;
     width: 100%;
@@ -28,6 +23,11 @@
    background: rgba(0, 0, 0, 0.7);
    padding-left: 10px;
    padding-right: 10px;
+}
+
+.image img{
+	width: 100%;
+	background-color: white;
 }
 
 .image .bottom{    

@@ -56,11 +56,13 @@
 	    <span class="h3">Total</span>
 	    <span class="h3">CHF ${cart.total()}</span>
     </div>
-    <div class="mb-3">
-    	<a class="h3" href="${linkServletProductsList}">Back to shopping</a>
+    <div class="d-flex justify-content-between">
+	    <div>
+	    	<a class="h3" href="${linkServletProductsList}">Retour au magasin</a>
+	    </div>
+	    <form method="GET" action="${linkServletPayment}">
+	    	<button class="btn btn-success">Payer</button>
+	    </form>
     </div>
-    <form method="GET" action="${linkServletPayment}">
-    	<button class="btn btn-success">Payer</button>
-    </form>
 </body>
 </html>
