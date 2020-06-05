@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="/products" var="linkServletProductsList"/>
+<c:url value="/checkout" var="linkServletCheckout"/>
 <html>
 <head>
     <title>Home</title>
@@ -22,16 +23,28 @@
 	        <tr>
 	        	<td>${productWithQuantity.product.name}</td>
 	        	<td>${productWithQuantity.quantity}</td>
-	        	<td></td>
-	        	<td></td>
-	        	<td></td>
+	        	<td>
+	        		<form method="POST" action="${linkServletCheckout}">
+	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="operator" value="+"/>
+	        			<button>+</button>
+	        		</form>
+	        	</td>
+	        	<td>
+	        		<form method="POST" action="${linkServletCheckout}">
+	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="operator" value="-"/>
+	        			<button>-</button>
+	        		</form>
+	        	</td>
+	        	<td>Remove</td>
 	        	<td>${productWithQuantity.product.price}</td>
 	        </tr>
         </c:forEach>
     	</tbody>
     </table>
     <h2>Total </h2>
-    <a>Back to shopping</a>
+    <a href="${linkServletProductsList}">Back to shopping</a>
     <button>Pay</button>
 </body>
 </html>

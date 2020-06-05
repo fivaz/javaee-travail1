@@ -31,4 +31,9 @@ public class ProductWithQuantity {
     public void increaseQuantity() {
         quantity += 1;
     }
+    
+    public void reduceQuantity() {
+    	if(quantity > 1)
+    		quantity -= 1;	
+    }
 }

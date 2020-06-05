@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Use a Map with Product as Key
 public class Cart {
 
     List<ProductWithQuantity> products;
@@ -26,6 +26,18 @@ public class Cart {
 		}
 		if(!found)
 			products.add(new ProductWithQuantity(product));
+    }
+    
+    public void increaseProduct(int productId) {
+		for(ProductWithQuantity productWithQuantity: products) 
+    		if(productWithQuantity.getProduct().getId() == productId) 
+    			productWithQuantity.increaseQuantity();
+    }
+    
+    public void reduceProduct(int productId) {
+		for(ProductWithQuantity productWithQuantity: products) 
+    		if(productWithQuantity.getProduct().getId() == productId) 
+    			productWithQuantity.reduceQuantity();
     }
     
     public int size() {
