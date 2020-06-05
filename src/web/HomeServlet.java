@@ -45,7 +45,8 @@ public class HomeServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		List<Product> products = productDao.get();
-		request.setAttribute("products", products);
+		List<Product> firstThree = products.subList(0, 3);
+		request.setAttribute("products", firstThree);	
 		
         request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
     }

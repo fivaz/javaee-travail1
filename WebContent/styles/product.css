@@ -1,0 +1,40 @@
+.product{
+	width: 32%;
+}
+
+.image{
+    position: relative;
+	width: 100%;
+}
+
+.image img{
+	width: 100%;
+	background-color: white;
+}
+
+.image .top{ 
+   position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.image span{ 
+   color: white; 
+   font: bold 24px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0);
+   background: rgba(0, 0, 0, 0.7);
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+.image .bottom{    
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
