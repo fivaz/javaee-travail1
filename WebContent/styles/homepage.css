@@ -9,3 +9,7 @@ body.homepage {
 .description{
     width: 70%;
 }
+
+a:hover {
+    color: #343a40!important;
+}

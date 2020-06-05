@@ -20,8 +20,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, String visual1, String visual2, double price, String description) {
-        this.id = id;
+    public Product(String name, String visual1, String visual2, double price, String description) {
         this.name = name;
         this.visual1 = visual1;
         this.visual2 = visual2;

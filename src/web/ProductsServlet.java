@@ -23,7 +23,7 @@ public class ProductsServlet extends HttpServlet {
 	private ProductDao productDao;
 
 	public void init() {
-		productDao = new ProductDao();
+		productDao = ProductDao.getInstance();
 	}
 	
 	@Override

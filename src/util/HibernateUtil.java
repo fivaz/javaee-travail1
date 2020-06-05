@@ -20,14 +20,15 @@ public class HibernateUtil {
 
 				// C'est comme hibernate.cfg.xml's 
 				Properties settings = new Properties();
-				//settings.put(Environment.DRIVER, "org.h2.Driver");
-				//settings.put(Environment.URL, "jdbc:h2:mem:mydb");
-				//settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
-				settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydb?useSSL=false&serverTimezone=CET");
+				settings.put(Environment.DRIVER, "org.h2.Driver");
+				settings.put(Environment.URL, "jdbc:h2:mem:mydb");
+				settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
+				//settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
+				//settings.put(Environment.URL, "jdbc:mysql://localhost:3306/demo?useSSL=false&serverTimezone=CET");
+				//settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mydb?useSSL=false&serverTimezone=CET");
 				settings.put(Environment.USER, "root");
 				settings.put(Environment.PASS, "root");
-				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+				//settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
 				settings.put(Environment.SHOW_SQL, "true");
 
@@ -40,7 +41,7 @@ public class HibernateUtil {
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
-				System.out.println("Hibernate Java Config serviceRegistry created");
+				System.out.println("Hibernate Java Config serviceRegistry créé");
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 				return sessionFactory;
 

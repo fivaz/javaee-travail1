@@ -22,9 +22,9 @@
 	    	<h1>Bienvenue!</h1>
 	    </a>
 	    <a href="${linkServletProductsList}" class="h4 text-decoration-none">
-	   		<p>
+	   		<h2 class="h3">
 	   			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. Nisl suscipit adipiscing bibendum est ultricies integer quis. Auctor urna nunc id cursus metus aliquam. Nec nam aliquam sem et tortor consequat id porta. At augue eget arcu dictum varius duis at consectetur. 	
-   			</p>
+   			</h2>
 	   	</a>
     </div>
     <div class="row justify-content-around mr-2 ml-2 mt-5">
