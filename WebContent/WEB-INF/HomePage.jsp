@@ -7,8 +7,6 @@
 </head>
 <body>
     <jsp:include page="Toolbar.jsp" />
-    <form>
-    </form>
     <a href="${linkServletProductsList}">
     	<h1>Welcome to e-shop!</h1>
     </a>

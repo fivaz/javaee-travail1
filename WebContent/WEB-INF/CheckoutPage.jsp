@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url value="/products" var="linkServletProductsList"/>
 <c:url value="/checkout" var="linkServletCheckout"/>
+<c:url value="/payment" var="linkServletPayment"/>
 <html>
 <head>
     <title>Home</title>
@@ -49,11 +50,13 @@
         </c:forEach>
     	</tbody>
     </table>
-    <div class="d-flex flex-row justify-content-around">
-	    <h2>Total</h2>
-	    <h2>CHF ${cart.total()}</h2>
-    </div>
-    <a href="${linkServletProductsList}">Back to shopping</a>
-    <button>Pay</button>
+	    <div class="d-flex flex-row justify-content-around">
+		    <h2>Total</h2>
+		    <h2>CHF ${cart.total()}</h2>
+	    </div>
+	    <a href="${linkServletProductsList}">Back to shopping</a>
+    <form method="GET" action="${linkServletPayment}">
+    	<button>Pay</button>
+    </form>
 </body>
 </html>

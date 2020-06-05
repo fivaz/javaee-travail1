@@ -61,4 +61,9 @@ public class Cart {
     		total += productWithQuantity.price();
     	return total;
     }
+    
+    public void clearCart()
+    {
+    	products.clear();
+    }
 }

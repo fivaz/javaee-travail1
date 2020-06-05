@@ -23,4 +23,11 @@ public class SessionUtil {
 		HttpSession session = request.getSession();
 		session.setAttribute("cart", cart);	
 	}
+	
+	public static void clearCart(HttpServletRequest request) {
+		Cart cart = getCart(request);
+		cart.clearCart();
+		HttpSession session = request.getSession();
+		session.setAttribute("cart", cart);	
+	}
 }
