@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class Product {
@@ -26,15 +27,6 @@ public class Product {
         this.visual2 = visual2;
         this.price = price;
         this.description = description;
-    }
-
-    private Product(Builder builder) {
-        setId(builder.id);
-        setName(builder.name);
-        setVisual1(builder.visual1);
-        setVisual2(builder.visual2);
-        setPrice(builder.price);
-        setDescription(builder.description);
     }
 
     public int getId() {
@@ -84,50 +76,22 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return id == product.id &&
+                Double.compare(product.price, price) == 0 &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(visual1, product.visual1) &&
+                Objects.equals(visual2, product.visual2) &&
+                Objects.equals(description, product.description);
+    }
 
-    public static final class Builder {
-        private int id;
-        private String name;
-        private String visual1;
-        private String visual2;
-        private double price;
-        private String description;
-
-        public Builder() {
-        }
-
-        public Builder id(int val) {
-            id = val;
-            return this;
-        }
-
-        public Builder name(String val) {
-            name = val;
-            return this;
-        }
-
-        public Builder visual1(String val) {
-            visual1 = val;
-            return this;
-        }
-
-        public Builder visual2(String val) {
-            visual2 = val;
-            return this;
-        }
-
-        public Builder price(double val) {
-            price = val;
-            return this;
-        }
-
-        public Builder description(String val) {
-            description = val;
-            return this;
-        }
-
-        public Product build() {
-            return new Product(this);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, visual1, visual2, price, description);
     }
 }

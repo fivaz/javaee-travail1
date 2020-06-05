@@ -2,6 +2,7 @@ package web;
 
 import util.SessionUtil;
 import util.Variables;
+import model.Cart;
 import model.Product;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ProductDao;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(urlPatterns = "/checkout")
 public class CheckoutServlet extends HttpServlet {
@@ -28,11 +28,10 @@ public class CheckoutServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		List<Product> products = productDao.get();
-		request.setAttribute("products", products);
 		
-		List<Integer> shoppingCart = SessionUtil.getCart(request);
-		
+		Cart cart = SessionUtil.getCart(request);
+			
+		request.setAttribute("cart", cart);
         request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
     }
 }

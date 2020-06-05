@@ -1,26 +1,27 @@
 package util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import model.Cart;
+import model.Product;
+
 public class SessionUtil {
 
-	public static List<Integer> getCart(HttpServletRequest request) {
+	public static Cart getCart(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		List<Integer> shoppingCart = null;
-		shoppingCart = (List<Integer>) session.getAttribute("cart");
-		if(shoppingCart == null)
-			shoppingCart = new ArrayList<>();
-		return shoppingCart;
+		Cart cart = null;
+		cart = (Cart) session.getAttribute("cart");
+		if(cart == null)
+			cart = new Cart();
+		return cart;
 	}
 	
-	public static void addtoCart(HttpServletRequest request, int productId) {
-		List<Integer> shoppingCart = getCart(request);
-		shoppingCart.add(productId);
+	public static void addtoCart(HttpServletRequest request, Product product) {
+		Cart cart = getCart(request);
+		cart.addProduct(product);
+		
 		HttpSession session = request.getSession();
-		session.setAttribute("cart", shoppingCart);	
+		session.setAttribute("cart", cart);	
 	}
 }

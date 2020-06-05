@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.ProductDao;
 
@@ -39,7 +38,9 @@ public class ProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		int productId = Integer.valueOf(request.getParameter("id"));
 		String context = request.getParameter("context");
-		SessionUtil.addtoCart(request, productId);
+		Product product = productDao.getProduct(productId);
+		SessionUtil.addtoCart(request, product);
+		
 		response.sendRedirect(context);
     }
 }
