@@ -1,6 +1,7 @@
 package web;
 
-import helpers.Variables;
+import util.SessionUtil;
+import util.Variables;
 import model.Product;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import dao.ProductDao;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/products")
@@ -39,13 +39,7 @@ public class ProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		int productId = Integer.valueOf(request.getParameter("id"));
 		String context = request.getParameter("context");
-		HttpSession session = request.getSession();
-		List<Integer> shoppingCart = null;
-		shoppingCart = (List<Integer>) session.getAttribute("cart");
-		if(shoppingCart == null)
-			shoppingCart = new ArrayList<>();
-		shoppingCart.add(productId);
-		session.setAttribute("cart", shoppingCart);		
+		SessionUtil.addtoCart(request, productId);
 		response.sendRedirect(context);
     }
 }

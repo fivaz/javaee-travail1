@@ -1,6 +1,6 @@
 package web;
 
-import helpers.Variables;
+import util.Variables;
 import model.Product;
 
 import javax.servlet.ServletException;
@@ -47,13 +47,6 @@ public class HomeServlet extends HttpServlet {
 		List<Product> products = productDao.get();
 		System.out.println(products);
 		request.setAttribute("products", products);
-		
-		HttpSession session = request.getSession();
-		List<Integer> shoppingCart = null;
-		shoppingCart = (List<Integer>) session.getAttribute("cart");
-		if(shoppingCart == null)
-			shoppingCart = new ArrayList<>();
-		session.setAttribute("cart", shoppingCart);	
 		
         request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
     }

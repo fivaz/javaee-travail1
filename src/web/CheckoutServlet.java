@@ -1,5 +1,6 @@
 package web;
 
+import util.SessionUtil;
 import util.Variables;
 import model.Product;
 
@@ -8,16 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.ProductDao;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/products/*")
-public class ProductDetailsServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/checkout")
+public class CheckoutServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,10 +28,11 @@ public class ProductDetailsServlet extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		int id = Integer.parseInt(request.getPathInfo().substring(1));
-		Product product = productDao.getProduct(id);
+		List<Product> products = productDao.get();
+		request.setAttribute("products", products);
 		
-		request.setAttribute("product", product);
-		request.getRequestDispatcher(Variables.folder + "ProductDetailsPage.jsp").forward(request, response);
+		List<Integer> shoppingCart = SessionUtil.getCart(request);
+		
+        request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
     }
 }
