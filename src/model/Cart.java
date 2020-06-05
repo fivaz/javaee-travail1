@@ -40,6 +40,14 @@ public class Cart {
     			productWithQuantity.reduceQuantity();
     }
     
+    public void removeProduct(int productId) {
+    	int i;
+		for(i=0; i < products.size(); i++) 
+    		if(products.get(i).getProduct().getId() == productId) 
+    			break;
+		products.remove(products.get(i));
+    }
+    
     public int size() {
     	int quantity = 0;
     	for(ProductWithQuantity product: products)

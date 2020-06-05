@@ -36,4 +36,8 @@ public class ProductWithQuantity {
     	if(quantity > 1)
     		quantity -= 1;	
     }
+    
+    public double price(){
+    	return quantity * product.getPrice();
+    }
 }

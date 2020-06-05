@@ -37,13 +37,23 @@ public class CheckoutServlet extends HttpServlet {
 	
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		String operator = request.getParameter("operator");
+		String context = request.getParameter("context");
 		int productId = Integer.valueOf(request.getParameter("id"));
 		Cart cart = SessionUtil.getCart(request);
-		if(operator.equals("+"))
-			cart.increaseProduct(productId);
-		if(operator.equals("-"))
-			cart.reduceProduct(productId);
+        switch(context) 
+        { 
+            case "increase": 
+    			cart.increaseProduct(productId);
+                break; 
+            case "reduce": 
+    			cart.reduceProduct(productId);
+                break; 
+            case "remove": 
+    			cart.removeProduct(productId);
+                break; 
+            default: 
+                System.out.println("no match"); 
+        } 
 		request.setAttribute("cart", cart);
         request.getRequestDispatcher(Variables.folder + "CheckoutPage.jsp").forward(request, response);
     }

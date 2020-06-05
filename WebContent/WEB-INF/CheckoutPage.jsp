@@ -26,19 +26,25 @@
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
 	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
-	        			<input type="hidden" name="operator" value="+"/>
+	        			<input type="hidden" name="context" value="increase"/>
 	        			<button>+</button>
 	        		</form>
 	        	</td>
 	        	<td>
 	        		<form method="POST" action="${linkServletCheckout}">
 	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
-	        			<input type="hidden" name="operator" value="-"/>
+	        			<input type="hidden" name="context" value="reduce"/>
 	        			<button>-</button>
 	        		</form>
 	        	</td>
-	        	<td>Remove</td>
-	        	<td>${productWithQuantity.product.price}</td>
+	        	<td>
+	        		<form method="POST" action="${linkServletCheckout}">
+	        			<input type="hidden" name="id" value="${productWithQuantity.product.id}"/>
+	        			<input type="hidden" name="context" value="remove"/>
+	    				<button><%@include file="icons/trash.svg" %></button>
+	        		</form>
+	        	</td>
+	        	<td>${productWithQuantity.price()}</td>
 	        </tr>
         </c:forEach>
     	</tbody>
