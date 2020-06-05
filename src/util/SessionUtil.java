@@ -10,8 +10,7 @@ public class SessionUtil {
 
 	public static Cart getCart(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		Cart cart = null;
-		cart = (Cart) session.getAttribute("cart");
+		Cart cart = (Cart) session.getAttribute("cart");
 		if(cart == null)
 			cart = new Cart();
 		return cart;

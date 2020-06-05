@@ -32,6 +32,6 @@ public class CheckoutServlet extends HttpServlet {
 		Cart cart = SessionUtil.getCart(request);
 			
 		request.setAttribute("cart", cart);
-        request.getRequestDispatcher(Variables.folder + "HomePage.jsp").forward(request, response);
+        request.getRequestDispatcher(Variables.folder + "CheckoutPage.jsp").forward(request, response);
     }
 }
